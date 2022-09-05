@@ -4,10 +4,10 @@ Feito por André Melotti.
 
 ## Questão 01:
 O input recebido pelo programa foi (4, 1, [29, 89, 136, 200]), o Filtro de inversão faz com que seja pego os valores dos pixels sejam mudados pelo seu inverso (no caso
-diminuindo o valor de 255, o máximo), tendo o onput final esperado sendo (4, 1, [226, 166, 119, 55]), Invertendo assim a tonalidade de preto, branco e cinza da imagem.
+diminuindo o valor de 255, o máximo), tendo o output final esperado sendo (4, 1, [226, 166, 119, 55]), Invertendo assim a tonalidade de preto, branco e cinza da imagem.
 
 ## Questão 02:
-Consistia em iverte a imagem "peixe", o resultado foi:
+Consistia em iverter a imagem "peixe", o resultado foi:
 
 ![peixeInvertido](https://user-images.githubusercontent.com/103462954/188498171-c04fe7da-29eb-4006-8666-9669644f6254.PNG)
 
@@ -45,17 +45,32 @@ Usando o filtro de "Borrado" na imagem do gato nós  temos:
 
 ![gatoborrado](https://user-images.githubusercontent.com/103462954/188499666-4d6da1f1-428a-48f8-ae65-372aefb9cc12.png)
 
-Caso houvesse a necessidade de usar uma versão desfocada com um kernel de desfoque de 3 x 3, o cálculo seria:
-kn_1 = [[0, 0, 0], [0, 2, 0], [0, 0, 0]]
+O kernel aplicado na versão desfocada B é a a subtração de dois kernels. o Primeiro kernel duplica o valor original do pixel e o segundo borra a imagem. O calculo seria:
+kernel1 = [[0, 0, 0],
+[0, 2, 0],
+[0, 0, 0]]
 
 operação (-)
 
-kn_2 = [[1/9, 1/9, 1/9],
+kernel2 = [[1/9, 1/9, 1/9],
 [1/9, 1/9, 1/9],
 [1/9, 1/9, 1/9]]
 
-Agora, subtraindo os pixels do kernel 1 (kn_1) pelos pixels do kernel 2 (kn_2) pelas suas respectivas posições, o resultado será
+O resultado do Kernel1 - Kernel2 =
 
-kn = [[-1/9, -1/9, -1/9],
+kernelresultado = [[-1/9, -1/9, -1/9],
 [-1/9, 17/9, -1/9],
 [-1/9, -1/9, -1/9]].
+
+Imagem da cobra(python) utilizando o filtro de **Nitidez**:
+
+![pythonNitido](https://user-images.githubusercontent.com/103462954/188500024-95fec1e3-5c75-429f-91f1-a501760ca18b.png)
+
+## Questão 06:
+O kernel1(x) detecta as bordas Horizontais, e kernel2(y) detecta aas bordas Verticais:
+
+A imagem de "obra", passando pelo filtro **"Bordas":**
+
+![obraBordas](https://user-images.githubusercontent.com/103462954/188500452-27deeaeb-df66-4e77-9128-99cd139e1e15.png)
+
+
